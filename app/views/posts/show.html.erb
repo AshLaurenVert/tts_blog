@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<div class= "panel panel-default">
+	<div class= "panel-heading">
+	<%= @post.title %> by <%= @post.user.email %>
+	</div>
+	<div class= "panel-body">
+	<%= @post.blog_entry %>
+	</div>
+	<div class= "panel-footer">
+	<p><%= link_to 'Edit', edit_post_path(@post), {class: 'btn btn-warning'} %> </p>
+	<div id="comments">
+		<%= render 'comments/form', comment: @comment %>
+		<% @post.comments.each do |comment| %>
+		<p>
+			<%= comment.user.email %> said...
+			<%= comment.comment_entry %>
+		</p>
+		<% end %>
+	</div>
+	<%= link_to 'Back', posts_path %>
+	</div>
+</div>
+
