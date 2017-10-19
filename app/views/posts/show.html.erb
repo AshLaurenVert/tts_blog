@@ -2,7 +2,7 @@
 
 <div class= "panel panel-default">
 	<div class= "panel-heading">
-	<%= @post.title %> by <%= @post.user.email %>
+	<strong><%= @post.title %></strong> by <%= @post.user.email %>
 	</div>
 	<div class= "panel-body">
 	<%= @post.blog_entry %>
@@ -13,7 +13,7 @@
 		<%= render 'comments/form', comment: @comment %>
 		<% @post.comments.each do |comment| %>
 		<p>
-			<%= comment.user.email %> said...
+			<%= comment.user.username %> said...
 			<%= comment.comment_entry %>
 		</p>
 		<% end %>
