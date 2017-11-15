@@ -4,13 +4,14 @@
 
 body {
 	background-image: url(asset-path('tcblogpic.png'));
+	background-size: 100%;
 	
 }
 
 
 .content {
     padding:20px;
-    width:975px;
+    width:1170px;
     position:absolute;
-    background: rgba(220,220,220, 0.6);   
-}
+    }
+

@@ -16,15 +16,13 @@
     			<%= link_to "Posts", posts_path, class: "btn btn-warning" %>
     		</li>
     		<li role="presentation" class= "pull-left">
-    			<%= link_to "New Post", new_post_path, class: "btn btn-success" %>
+    			<%= link_to "New Post", new_post_path, class: "btn btn-success"%>
     		</li>
-         <li role="presentation" class="pull-right">
+         <li role="presentation" class="pull-left">
           <% if user_signed_in? %>
            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %></li>
-          <li role="presentation" class="pull-right">
-         <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %>
-         <li role= "presentation" class="pull-right">
-        <%= image_tag current_user.avatar.url, class: 'img-responsive', height: '30px', width: '30px'%></li>
+          <!--havent created the view for this so the link doesnt look good<li role="presentation" class="pull-right">
+         <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %>-->      
           <% end %>
     		</li>
         </ul>

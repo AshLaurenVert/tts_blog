@@ -2,23 +2,22 @@
 
 <div class= "panel panel-default">
 	<div class= "panel-heading">
-	<strong><%= @post.title %></strong> by <%= @post.user.email %>
+	<strong><%= @post.title %></strong> by <%= @post.user.username %>
 	</div>
 	<div class= "panel-body">
 	<%= @post.blog_entry %>
 	</div>
 	<div class= "panel-footer">
 	<p><%= link_to 'Edit', edit_post_path(@post), {class: 'btn btn-warning'} %> </p>
+	
 	<div id="comments">
 		<%= render 'comments/form', comment: @comment %>
 		<% @post.comments.each do |comment| %>
-		<p>
-			<%= comment.user.username %> said...
-			<%= comment.comment_entry %>
-		</p>
+		<p><strong><%= link_to comment.user.username, user_posts_path(name: comment.user.username) %> said...</strong></p>
+			<p><%= comment.comment_entry %></p>
 		<% end %>
 	</div>
-	<%= link_to 'Back', posts_path %>
+	<p><%= link_to 'Back', posts_path, class: 'btn btn-default' %></p>
 	</div>
 </div>
 

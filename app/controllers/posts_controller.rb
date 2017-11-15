@@ -3,8 +3,13 @@ class PostsController < ApplicationController
 
   # GET /posts
   # GET /posts.json
+
+  def user_posts
+    @user = User.find_by(params[:name])
+  end
+
   def index
-    @posts = Post.all
+    @posts = Post.all.page(params[:page])
   end
 
   # GET /posts/1
@@ -70,6 +75,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :blog_entry,:post_id, :user_id, :username)
+      params.require(:post).permit(:title, :author, :blog_entry,:post_id, :user_id, :username)
     end
 end
